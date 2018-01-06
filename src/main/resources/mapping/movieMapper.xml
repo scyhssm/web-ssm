@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="movie.IDao.movieMapper">
+  <resultMap id="BaseResultMap" type="movie.domain.movie">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="movie_name" jdbcType="VARCHAR" property="movieName" />
+    <result column="movie_url" jdbcType="VARCHAR" property="movieUrl" />
+    <result column="movie_actor" jdbcType="VARCHAR" property="movieActor" />
+    <result column="movie_rate" jdbcType="REAL" property="movieRate" />
+    <result column="movie_label" jdbcType="VARCHAR" property="movieLabel" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="movie.domain.movie">
+    <result column="movie_intro" jdbcType="LONGVARCHAR" property="movieIntro" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    movie_intro
+  </sql>
+  <insert id="insert" parameterType="movie.domain.movie">
+    insert into movie (id, movie_name, movie_url, 
+      movie_actor, movie_rate, movie_label, 
+      movie_intro)
+    values (#{id,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, #{movieUrl,jdbcType=VARCHAR}, 
+      #{movieActor,jdbcType=VARCHAR}, #{movieRate,jdbcType=REAL}, #{movieLabel,jdbcType=VARCHAR}, 
+      #{movieIntro,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="movie.domain.movie">
+    insert into movie
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="movieName != null">
+        movie_name,
+      </if>
+      <if test="movieUrl != null">
+        movie_url,
+      </if>
+      <if test="movieActor != null">
+        movie_actor,
+      </if>
+      <if test="movieRate != null">
+        movie_rate,
+      </if>
+      <if test="movieLabel != null">
+        movie_label,
+      </if>
+      <if test="movieIntro != null">
+        movie_intro,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="movieName != null">
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="movieUrl != null">
+        #{movieUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="movieActor != null">
+        #{movieActor,jdbcType=VARCHAR},
+      </if>
+      <if test="movieRate != null">
+        #{movieRate,jdbcType=REAL},
+      </if>
+      <if test="movieLabel != null">
+        #{movieLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="movieIntro != null">
+        #{movieIntro,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
