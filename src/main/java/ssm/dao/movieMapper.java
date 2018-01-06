@@ -1,6 +1,6 @@
-package movie.IDao;
+package ssm.dao;
 
-import movie.domain.movie;
+import ssm.model.movie;
 
 public interface movieMapper {
     int insert(movie record);

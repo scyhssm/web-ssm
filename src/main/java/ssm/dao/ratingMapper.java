@@ -1,6 +1,6 @@
-package movie.IDao;
+package ssm.dao;
 
-import movie.domain.rating;
+import ssm.model.rating;
 
 public interface ratingMapper {
     int deleteByPrimaryKey(Integer id);

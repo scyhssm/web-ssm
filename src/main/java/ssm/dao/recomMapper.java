@@ -1,6 +1,6 @@
-package movie.IDao;
+package ssm.dao;
 
-import movie.domain.recom;
+import ssm.model.recom;
 
 public interface recomMapper {
     int insert(recom record);

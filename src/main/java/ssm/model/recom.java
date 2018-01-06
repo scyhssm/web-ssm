@@ -1,4 +1,4 @@
-package movie.domain;
+package ssm.model;
 
 public class recom {
     private Integer movieid;

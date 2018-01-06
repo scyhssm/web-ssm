@@ -1,4 +1,4 @@
-package movie.domain;
+package ssm.model;
 
 import java.util.Date;
 

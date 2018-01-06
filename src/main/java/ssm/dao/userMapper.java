@@ -1,6 +1,6 @@
-package movie.IDao;
+package ssm.dao;
 
-import movie.domain.user;
+import ssm.model.user;
 
 public interface userMapper {
     int insert(user record);
